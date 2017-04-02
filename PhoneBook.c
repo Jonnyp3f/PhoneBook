@@ -22,8 +22,8 @@ int main()
 	printf("%s\n"," press 0 to exit this application");
 		 
 	//1 to add 2 to retrieve 3 to sort 4 to delete 5 to save 0 to exit
-	while (1)
-	{
+    while (1)
+    {
 	int selection=-1;
 	scanf("%d", &selection);
 

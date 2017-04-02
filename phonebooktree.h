@@ -1,6 +1,7 @@
 // define the treenode
 typedef struct treeNode{
 	NodeData data;
+    struct treeNode *left, *right;
 }TreeNode,*TreeNodePtr;
 
 // define the BinaryTree 
@@ -28,48 +29,17 @@ TreeNodePtr makeTreeNode(NodeData d){
     return node;
 }
 
+//add data to binary tree; no duplicates allowed
+TreeNodePtr add(char *fname, char *lname, char *phoneNumber, TreeNodePtr root){
 
-BinaryTree add(root)
-{
-	 char[30] fname;
-	 char[30] lname;
-	 char [16] phoneNumber;
-
-	TreeNodePtr p = (TreeNodePtr) malloc(sizeof(TreeNode));
-	p.fname -> fname;
-	p.lname -> lname;
-	p.left -> NULL;
-	p.right -> NULL;
-	if (p == NULL){
-		return p;
-	}
-	if(phoneNum> p.phoneNumber)
-	{
-		p.left add(p.left
-	}
-
-
-
+    if (root == NULL) return makeTreeNode(makeNodeData(fname, lname, phoneNumber));
+    if (strcmp(lname, root->data.lname) < 0) add(fname, lname, phoneNumber, root->left);
+    else if (strcmp(lname, root->data.lname) > 0) add(fname, lname, phoneNumber, root->right);
+    else {
+        printf("Information already exists in phone book");
+        return root;
+    }
 }
-/*
-Algorithm add(R, fname, lname, phonenumber)	
-	Input Binary Tree root R and strings fname, lname, phone number
-	Output Binary Tree with phone entry containing the strings added
-	node <--- allocating memory for node	
-	node->lname <--- lname	
-	node->num <--- phonenumber	
-	node->left <--- NULL	
-	node->right <--- NULL	
-	if R = NULL then	
-		return node
-	if str < phone number member of R
-		left member of R <--- add(left member of R, str)		
-	else
-		right member of R <--- add(right member of R, str)	
-	return R
-
-*/
-
 
 /*
 Algorithm delete(R, str)
