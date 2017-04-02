@@ -33,7 +33,7 @@ TreeNodePtr makeTreeNode(NodeData d){
 TreeNodePtr add(char *fname, char *lname, char *phoneNumber, TreeNodePtr root){
 
     if (root == NULL) return makeTreeNode(makeNodeData(fname, lname, phoneNumber));
-    if (strcmp(lname, root->data.lname) < 0) add(fname, lname, phoneNumber, root->left);
+    else if (strcmp(lname, root->data.lname) < 0) add(fname, lname, phoneNumber, root->left);
     else if (strcmp(lname, root->data.lname) > 0) add(fname, lname, phoneNumber, root->right);
     else {
         printf("Information already exists in phone book");
@@ -43,8 +43,7 @@ TreeNodePtr add(char *fname, char *lname, char *phoneNumber, TreeNodePtr root){
 
 //retreive contact info from last name
 TreeNodePtr retrieve(char *lname, TreeNodePtr root){
-    if (strcmp(root->data.lname, lname) == 0) return root;
-    else if (root == NULL) return NULL;
+    if (root == NULL || strcmp(root->data.lname, lname) == 0) return root; //NULL or node is validated in Phonebook.c
     else if (strcmp(root->data.lname, lname) < 0) retrieve(lname, root->left);
     else  retrieve(lname, root->right);
 
