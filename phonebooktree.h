@@ -6,12 +6,26 @@ typedef struct treeNode{
 // define the BinaryTree 
 typedef struct{
 	TreeNodePtr root;
+    int type;  //experimental - var should hold how tree is sorted(i.e. by fname, lname or number)
 }BinaryTree;
 
-TreeNode makeTreeNode(char * fname, char * lname, char * phoneNumber){
 
+//create node containing contact info
+NodeData makeNodeData(char * fname, char * lname, char * phoneNumber){
+    NodeData temp;
 
+    strcpy(temp.fname, fname);
+    strcpy(temp.lname, lname);
+    strcpy(temp.phoneNumber, phoneNumber);
 
+    return temp;
+}
+
+//create tree node for binary tree containing contact info 
+TreeNodePtr makeTreeNode(NodeData d){
+    TreeNodePtr node = (TreeNodePtr) malloc(sizeof(TreeNode));
+    node->data = d;
+    return node;
 }
 
 
