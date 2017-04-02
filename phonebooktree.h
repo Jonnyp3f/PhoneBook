@@ -41,6 +41,14 @@ TreeNodePtr add(char *fname, char *lname, char *phoneNumber, TreeNodePtr root){
     }
 }
 
+//retreive contact info from last name
+TreeNodePtr retrieve(char *lname, TreeNodePtr root){
+    if (strcmp(root->data.lname, lname) == 0) return root;
+    else if (root == NULL) return NULL;
+    else if (strcmp(root->data.lname, lname) < 0) retrieve(lname, root->left);
+    else  retrieve(lname, root->right);
+
+}
 /*
 Algorithm delete(R, str)
 	Input Binary tree root R and a string str

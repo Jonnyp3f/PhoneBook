@@ -10,7 +10,8 @@ typedef struct{
 }NodeData;
 
 #include "phonebooktree.h"
-
+//TODO: Fix menu so user can choose which attribute of the Node Data cacan be searched for, deleted for 
+//TODO: implement sorting algorithm so other functions can work optimallyi
 int main()
 {	
 	printf("%s\n"," Welcome To the Phone Book");
